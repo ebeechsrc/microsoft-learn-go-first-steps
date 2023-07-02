@@ -1,0 +1,15 @@
+# Setup directories/modules
+```bash
+go work init
+mkdir geometry
+cd geometry
+go mod init example.com/geometry
+cd ..
+mkdir geometry-consumer
+cd geometry-consumer
+go mod init example.com/geometry-consumer
+```
+
+Then edit the `go.work` to include the two modules.
+
+Edit the `./geometry-consumer/go.mod` to include the geometry module.
