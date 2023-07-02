@@ -12,7 +12,8 @@
 				"GitHub.copilot-nightly",
 				"GitHub.copilot-chat",
 				"golang.Go",
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"golang.go"
 			]
 		}
 	}
