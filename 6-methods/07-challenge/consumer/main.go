@@ -18,5 +18,5 @@ func main() {
 }
 
 func printCredits(employeeAccount store.Employee) {
-	fmt.Printf("Credits: %v\n", employeeAccount.Credits())
+	fmt.Printf("Credits: %v\n", employeeAccount.CheckCredits())
 }

@@ -10,7 +10,7 @@ type Employee struct {
 var ErrInvalidCreditAmount = errors.New("Invalid credit amount")
 var ErrInsufficientCredits = errors.New("Insufficient credits")
 
-func (e *Employee) Credits() float64 {
+func (e *Employee) CheckCredits() float64 {
 	return e.credits
 }
 
