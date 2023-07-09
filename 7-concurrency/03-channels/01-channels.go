@@ -35,8 +35,9 @@ func main() {
 	}
 
 	// only the first message in the channel is printed.
-	fmt.Print(<-ch)
-	// time.Sleep(3 * time.Second)
+	for i := 0; i < len(apis); i++ {
+		fmt.Print(<-ch)
+	}
 
 	elapsed := time.Since(start)
 	fmt.Printf("Done! It took %v seconds!\n", elapsed.Seconds())
