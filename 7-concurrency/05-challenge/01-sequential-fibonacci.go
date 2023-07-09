@@ -22,10 +22,11 @@ func main() {
 	start := time.Now()
 	fibonacci_results := make(chan float64, 10)
 
-	for i := 1; i < 15; i++ {
+	size := 15
+	for i := 1; i < size; i++ {
 		go fib(fibonacci_results, float64(i))
 	}
-	for i := 1; i < 15; i++ {
+	for i := 1; i < size; i++ {
 		n := <-fibonacci_results
 		fmt.Printf("%v\n", n)
 	}
