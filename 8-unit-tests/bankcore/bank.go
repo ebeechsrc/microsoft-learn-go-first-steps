@@ -36,7 +36,7 @@ func (a *Account) Withdraw(amount float64) error {
 	}
 
 	if a.Balance < amount {
-		return errors.New("the amount to withdraw should be greater than the account's balance")
+		return errors.New("Insufficient funds available to withdraw")
 	}
 
 	a.Balance -= amount
@@ -46,4 +46,29 @@ func (a *Account) Withdraw(amount float64) error {
 // Statement ...
 func (a *Account) Statement() string {
 	return fmt.Sprintf("%v - %v - %v", a.Number, a.Name, a.Balance)
+}
+
+// Transfer function
+func (a *Account) Transfer(amount float64, dest *Account) error {
+	if amount <= 0 {
+		return errors.New("the amount to transfer should be greater than zero")
+	}
+
+	if a.Balance < amount {
+		return errors.New("Insufficient funds available to transfer")
+	}
+
+	a.Withdraw(amount)
+	dest.Deposit(amount)
+	return nil
+}
+
+// Bank ...
+type Bank interface {
+	Statement() string
+}
+
+// Statement ...
+func Statement(b Bank) string {
+	return b.Statement()
 }
